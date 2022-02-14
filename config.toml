@@ -29,10 +29,10 @@ theme = "simplog"
   archive = "archives"
 
 [params]
-  subtitle = "Humor crypto para pasar el invierno"
+  subtitle = "Crypto humor and memes for a harsh winter"
   colorTheme = "dark"
-  description = "crypto-memes para el mundo"
-  twitter = "elaltquimista"
+  description = "Crypto memes to the world"
+  twitter = "cryptosr_us"
   customCSS = ""
   adobeFontsKitId = ""
 
