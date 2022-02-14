@@ -20,7 +20,7 @@ theme = "simplog"
   [[menu.main]]
     identifier = "upload"
     name = "Upload Meme"
-    url = "/sube/"
+    url = "/upload/"
     weight = 30
 
 [taxonomies]
