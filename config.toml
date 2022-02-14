@@ -1,7 +1,7 @@
-baseURL = "https://sato.lol"
-title = "Señor Sato"
+baseURL = "https://cryptosrus.lol"
+title = "CRYPTORUS DOT LOL | For all the crypto memes!"
 description = ""
-author = "elaltquimista"
+author = "CRYPTORUS.LOL"
 paginate = 7
 languageCode = "en"
 DefaultContentLanguage = "en"
@@ -19,7 +19,7 @@ theme = "simplog"
     weight = 20
   [[menu.main]]
     identifier = "upload"
-    name = "Sube Meme"
+    name = "Upload Meme"
     url = "/sube/"
     weight = 30
 
