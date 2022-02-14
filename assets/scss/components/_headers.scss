@@ -3,7 +3,7 @@
   height: 48px;
   display: flex;
   z-index: 1;
-  background-color: hsl(0, 0%, 31%);
+  background-color: hsl(202, 19%, 15%);
   // position: fixed;
   width: 100%;
   box-shadow: 2px 2px 3px transparentize(#222, 0.6);
@@ -14,8 +14,12 @@
     display: none;
     align-items: center;
     padding: 16px 8px 16px 56px;
-    background-color: #ffeb5b;
+    background: hsl(202, 19%, 11%);
 
+    a {
+      color: hsl(33, 93%, 58%);
+    }
+    
     @include media-breakpoint-up('halfway') {
       display: flex;
     }
