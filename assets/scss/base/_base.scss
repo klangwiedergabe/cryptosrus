@@ -1,0 +1,101 @@
+html {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  font-family: 'sspro', sans-serif;
+  font-weight: 400;
+  background-color: #444;
+  color: white;
+  // background-repeat: no-repeat;
+  // background-image: 
+  //   url('/backgrounds/subememeaqui.webp'),
+  //   url('/backgrounds/subememeaqui.webp');
+  // background-size: 
+  //   120px, 
+  //   400px;
+  // background-position: 
+  //   100% 0%, 
+  //   0% 100%;
+}
+
+h1, 
+h2,
+h3,
+h4,
+h5,
+h6 {
+  // font-family: 'bemio', sans-serif;
+  font-weight: 600;
+  margin-bottom: 1.275em;
+}
+
+h6 {
+  line-height: 1.4;
+
+  // &:first-letter {
+  //   color: $primary;
+  //   font-style: italic;
+  //   font-size: 1.875em;
+  //   text-shadow: 2px 1px 0 #000;
+  //   float: left;
+  //   padding: 0px 16px 0px 0;
+  // }
+}
+
+p {
+  position: relative;
+  font-family: 'sspro', sans-serif;
+  margin-bottom: 1.85em;
+  
+  font-size: 1.1em;
+  line-height: 1.75;
+}
+
+a {
+  @include color-mode(color, base, text-alt);
+}
+
+p + h1,
+p + h2,
+p + h3,
+p + h4,
+p + h5,
+p + h6 {
+  margin-top: 2.5em;
+}
+
+p + blockquote {
+  margin-top: 1.75em;
+}
+
+blockquote p {
+  @include color-mode(color, base, text-alt);
+  @include color-mode(border, base, text-alt);
+  font-weight: 700;
+  font-size: 1.25em;
+  line-height: 1.5;
+  border-left: 7px solid;
+  padding-left: 16px;
+  column-span: all;
+  margin: 2em 1.425em 2.25em 1.175em;
+
+  @include media-breakpoint-up('ipad-pro') {
+    margin: 2em 2.975em 2.25em 2.15em;
+  }
+}
+
+ul {
+  margin-bottom: 2.25em;
+}
+
+li {
+  margin-bottom: 0;
+}
+
+.test {
+  border: 1px solid red !important;
+}

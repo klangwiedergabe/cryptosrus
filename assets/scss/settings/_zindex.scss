@@ -1,0 +1,30 @@
+$zindex-layers: (
+  'moria': -6000,
+  'behind': -10,
+  'background': 0,
+  'base': 10,
+  'content': 20,
+  'content-2': 50,
+  'content-3': 100,
+  'modal': 1000,
+  'modal-2': 2000,
+  'modal-3': 3000,
+  'widget-trigger': 50000,
+  'widget': 50001,
+) !default;
+
+@function use-layer($key) {
+  @if not ($zindex-layers) {
+    @warn 'Unknown z-index layers `#{$zindex-layers}`';
+    @return null;
+  }
+
+  @if not map-has-key($zindex-layers, $key) {
+    @warn 'Unknown `#{$key}` in `#{$zindex-layers}`';
+    @return null;
+  }
+
+  $z-index-value: map-get($zindex-layers, $key);
+
+  @return $z-index-value;
+}

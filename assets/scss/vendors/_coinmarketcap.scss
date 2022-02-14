@@ -1,0 +1,59 @@
+#coinPriceBlock-wrapper {
+  margin-top: 8px;
+}
+
+#coinPriceBlock-container {
+  min-height: 90px !important;
+
+  .coinPriceBlock {
+    position: relative !important;
+    border: 1px solid transparentize(goldenrod, 0.8);
+    font-family: 'sspro';
+    border-radius: 6px !important;
+    padding: 8px 12px !important;
+    box-shadow: none !important;
+  }
+}
+
+.coinPriceBlock__icon {
+  position: absolute !important;
+  top: 10px !important;
+  margin-bottom: -8px !important;
+
+  img {
+    height: 19px !important;
+  }
+}
+
+.coinPriceBlock__title a {
+  @include color-mode(color, base, text);
+  margin-left: 22px !important;
+}
+
+.coinPriceBlock__price {
+  @include color-mode(color, base, text-alt);
+  padding-top: 4px;
+  padding-bottom: 8px !important;
+}
+
+.coinPriceBlock__changes {
+  border-radius: 0 !important;
+}
+
+.coinPriceBlock-footer {
+  margin-top: 8px !important;
+}
+
+.coinPriceBlock-signature__powerBy {
+  display: none !important;
+}
+
+#currency-select {
+  @include color-mode(color, base, text-alt);
+}
+
+.coinPriceBlock-signature {
+  svg path {
+    @include color-mode(fill, base, text);
+  }
+}

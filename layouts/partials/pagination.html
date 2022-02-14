@@ -1,0 +1,54 @@
+{{ $pag := $.Paginator }}
+{{ if gt $pag.TotalPages 1 }}
+<ul class="paginator">
+  {{ with $pag.First }}
+  {{ if $pag.HasPrev }}
+  {{ else }}
+  {{ end }}
+  {{ end }}
+  {{ if $pag.HasPrev }}
+  <li class="paginator__item">
+    <a href="{{ $pag.Prev.URL }}" class="paginator__anchor" aria-label="Previous">
+      <span aria-hidden="true">👈</span>
+    </a>
+  </li>
+  {{ else }}
+  <li class="paginator__item paginator__item--disabled">
+    <span aria-hidden="true">👈</span>
+  </li>
+  {{ end }}
+  {{ $ellipsed := false }}
+  {{ $shouldEllipse := false }}
+  {{ range $pag.Pagers }}
+  {{ $right := sub .TotalPages .PageNumber }}
+  {{ $showNumber := or (le .PageNumber 3) (eq $right 0) }}
+  {{ $showNumber := or $showNumber (and (gt .PageNumber (sub $pag.PageNumber 2)) (lt .PageNumber (add $pag.PageNumber 2))) }}
+  {{ if $showNumber }}
+    {{ $ellipsed = false }}
+    {{ $shouldEllipse = false }}
+  {{ else }}
+    {{ $shouldEllipse = not $ellipsed }}
+    {{ $ellipsed = true }}
+  {{ end }}
+  {{ if $showNumber }}
+  <li class="paginator__item{{ if eq . $pag }} active{{ end }}">
+    <a class="paginator__anchor" href="{{ .URL }}">{{ .PageNumber }}</a>
+  </li>
+  {{ else if $shouldEllipse }}
+  <li class="paginator__item paginator__item--disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+  {{ end }}
+  {{ end }}
+  {{ if $pag.HasNext }}
+  <li class="paginator__item">
+    <a href="{{ $pag.Next.URL }}" class="paginator__anchor" aria-label="Next"><span aria-hidden="true">👉</span></a>
+  </li>
+  {{ else }}
+  <li class="paginator__item paginator__item--disabled"><span aria-hidden="true">👉</span></li>
+  {{ end }}
+  {{ with $pag.Last }}
+  {{ if $pag.HasNext }}
+  {{ else }}
+  {{ end }}
+  {{ end }}
+</ul>
+{{ end }}

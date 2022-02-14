@@ -1,0 +1,43 @@
+{{define "main"}}
+
+  <div class="ani-meme">
+    <img src="/backgrounds/subememeaqui.webp"/>
+  </div>
+  
+  <!--$paginator-->
+  {{$p := .Pages}}
+  {{if .IsHome}}
+  {{$p = where site.RegularPages "Type" "in" site.Params.mainSections}}
+  {{else if eq .Kind "taxonomy"}}
+  {{$p = $p.ByTitle}}
+  {{end}}
+  {{$paginator := .Paginate $p}}
+
+  <!--list-->
+  {{ if eq .IsHome false }}
+    <div style="margin: 16px auto 0px; text-align: center;">
+      <h4 style="margin: 0;">Estás viendo el tag</h4>
+      <h2>{{.Title}}</h2>
+    </div>
+    {{/*  <h1>
+      Home is False
+    </h1>  */}}
+  {{ end }}
+
+  <div class="sato-main">
+    
+    <ul class="sato-memes">
+      {{range $paginator.Pages}}
+        {{ partial "li.html" (dict "context" . "isIndex" true) }}
+      {{end}}
+    </ul>
+
+    <div class="sato-sad">
+
+    </div>
+  </div>
+
+  <!--pagination-->
+  {{template "partials/pagination.html" .}}
+
+{{end}}

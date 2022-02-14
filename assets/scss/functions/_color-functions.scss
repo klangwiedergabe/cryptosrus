@@ -1,0 +1,105 @@
+@function use-color($key, $variation: base) {
+  @if not ($elalt-palette) {
+    @warn 'Unknown palette `#{$elalt-palette}`';
+    @return null;
+  }
+
+  @if not map-has-key($elalt-palette, $key) {
+    @warn 'Unknown `#{$key}` in `#{$elalt-palette}`';
+    @return null;
+  }
+
+  $color-palette: map-get($elalt-palette, $key);
+  $result-color: map-get($color-palette, $variation);
+  @return $result-color;
+}
+
+
+// MIXIN
+@mixin color-mode($prop, $key, $color) {
+  @if $prop == 'border' {
+    border-color: use-color(#{$key}, #{$color});
+    
+    @if $key == 'base' {
+      @at-root {
+        [data-theme="dark"] & {
+          border-color: use-color(darkmode, #{$color});
+        }
+      }
+    }
+  }
+
+  @if $prop == 'color' {
+    color: use-color(#{$key}, #{$color});
+    
+    @if $key == 'base' {
+      @at-root {
+        [data-theme="dark"] & {
+          color: use-color(darkmode, #{$color});
+        } 
+      }
+    }
+  }
+
+  @else if $prop == 'shadow' {
+    box-shadow: 1px 1px 8px 0 use-color(#{$key}, #{$color});
+    
+    @if $key == 'base' {
+      @at-root {
+        [data-theme="dark"] & {
+          box-shadow: 1px 1px 8px 0 use-color(darkmode, #{$color});
+        } 
+      }
+    }
+  }
+
+  @else if $prop == 'shadow-bottom' {
+    box-shadow: 0 -1px 2px 0 use-color(#{$key}, #{$color});
+    
+    @if $key == 'base' {
+      @at-root {
+        [data-theme="dark"] & {
+          box-shadow: 0 -1px 2px 0 use-color(darkmode, #{$color});
+        } 
+      }
+    }
+  }
+
+  @else if $prop == 'bbandit' {
+    background: linear-gradient(-180deg, transparentize(use-color(#{$key}, #{$color}), 1) 0%, use-color(#{$key}, #{$color}) 86%);
+    
+    @if $key == 'base' {
+      @at-root {
+        [data-theme="dark"] & {
+          background: linear-gradient(-180deg, transparentize(use-color(darkmode, #{$color}), 1) 0%, use-color(darkmode, #{$color}) 86%);
+        } 
+      }
+    }
+  }
+
+
+
+  @else if $prop == 'bgprop' {
+    background-color: use-color(#{$key}, #{$color});
+    
+    @if $key == 'base' {
+      @at-root {
+        [data-theme="dark"] & {
+          background-color: use-color(darkmode, #{$color}) !important;
+        }
+      }
+    }
+  }
+
+  @else if $prop == 'fill' {
+    fill: use-color(#{$key}, #{$color});
+    
+    @if $key == 'base' {
+      @at-root {
+        [data-theme="dark"] & {
+          fill: use-color(darkmode, #{$color}) !important;
+        }
+      }
+    }
+  }
+}

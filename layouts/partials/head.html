@@ -1,0 +1,67 @@
+{{ $lastBuld := now.Unix }}
+{{ $cahceHashBase := (sha1 $lastBuld) }}
+{{ $site := .Site }}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{{ if .IsHome }}
+  <title>{{ $site.Title }}</title>
+  <meta name="description" content="{{ $site.Params.Description }}">
+{{ else }}
+  <title>{{ .Title }} - {{ $site.Title }}</title>
+  <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ $site.Params.description }}{{ end }}">
+{{ end }}
+
+<meta name="author" content="{{ $site.Params.AuthorName }}">
+
+<link rel="apple-touch-icon" sizes="180x180" href="{{ "/images/apple-touch-icon.png" | relURL }}?c={{$cahceHashBase}}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ "/images/favicon.png" | relURL }}?c={{$cahceHashBase}}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ "/images/favicon-16x16.png" | relURL }}?c={{$cahceHashBase}}">
+
+
+<meta property="og:title" content="{{ if .IsHome }}{{ $site.Title }}{{ else }}{{ .Title }} - {{ $site.Title }}{{ end }}">
+</meta>
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="{{ $site.Title }}">
+<meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ $site.Params.description }}{{ end }}">
+{{ with .Params.ogimage }}
+  <meta property="og:image" content="{{ $site.BaseURL }}{{ . }}">
+{{ else }}
+  <meta property="og:image" content="{{ $site.BaseURL }}/images/featured_image.jpg">
+{{ end }}
+
+<meta name="twitter:card" content="summary_large_image" /></meta>
+<meta name="twitter:site" content="@{{ $site.Params.Twitter }}"></meta>
+<meta name="twitter:creator" content="@{{ $site.Params.Twitter }}"></meta>
+<meta name="twitter:title" content="{{ if .IsHome }}{{ $site.Title }}{{ else }}{{ .Title }} - {{ $site.Title }}{{ end }}"></meta>
+<meta name="twitter:url" content="{{ .Permalink }}"></meta>
+<meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ $site.Params.description }}{{ end }}"></meta>
+{{ if .Params.memeimg}}
+  <meta property="twitter:image" content="{{ $site.BaseURL }}/images/{{ .Params.memeimg }}">
+{{ else }}
+  <meta property="og:image" content="{{ $site.BaseURL }}/images/featured_image.jpg">
+{{ end }}
+
+
+<!-- CSS -->
+{{- $inServerMode	:= .Site.IsServer }}
+{{- $cssTarget		:= "css/style.css" }}
+{{- $cssOptions		:= cond ($inServerMode) (dict "targetPath" $cssTarget "enableSourceMap" true) (dict "targetPath" $cssTarget "outputStyle" "compressed") }}
+{{- $style			:= resources.Get "scss/styles.scss" | toCSS $cssOptions }}
+  <link type="text/css" rel="stylesheet" href="{{ $style.RelPermalink }}">
+{{ range .Site.Params.css -}}
+    <link type="text/css" rel="stylesheet" href="{{ . | relURL }}">
+{{ end -}}
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YC5XE9BVJG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YC5XE9BVJG');
+</script>

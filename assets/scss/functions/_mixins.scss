@@ -1,0 +1,84 @@
+// Shorthand to create element classes, is made to `@include` inside a block definition.
+//   .block-name {
+//     @include element('element-name') {
+//       some: attributes;
+//     }
+//   }
+@mixin element($element-name) {
+  @at-root {
+    &#{$element-separator}#{$element-name} {
+      @content;
+    }
+  }
+}
+
+// Shorthand to create modiers classes, is made to `@include` inside a element or block definition.
+// Block and Elements can have modifiers classes, this mixin help you to keep in the right track.
+//
+// @example scss - New Modifier
+//   .block-name {
+//     @include modifier('modifier-name') {
+//       some: attributes;
+//     }
+//   }
+//   .block-name {
+//     @include element('element-name') {
+//       @include modifier('modifier-name'){
+//         some: attributes;
+//       }
+//     }
+//   }
+@mixin modifier($modifier-name) {
+  @at-root {
+    &#{$modifier-separator}#{$modifier-name} {
+      @content;
+    }
+  }
+}
+
+// Helper mixin for ask if a block have some modifier
+//
+// This is made for work certain behavior in elements or blocks who has set modifier classes.
+//
+// This work in elements inside blocks or blocks inside anothers blocks, with the help of the var `$current`.
+//   In the case of the defaul value of `$current`, the current class it's inside the block defined.
+//
+//   .main-block-name {
+//     some: attributes;
+//     @include modifier('modifier-name') {
+//       some: attributes;
+//     }
+//   }
+//
+//   .sub-block-name {
+//     @include element('element-name') {
+//       some: attributes;
+//       @include if-block-has-modifier('main-block-name', 'modifier-name'){
+//         some: other-attributes;
+//       }
+//     }
+//   }
+//
+//   .block-name {
+//     some: attributes;
+//     @include modifier('modifier-name') {
+//       some: attributes;
+//     }
+//     @include modifier('modifier-name-2') {
+//       some: attributes;
+//       @include if-block-has-modifier('block-name', 'modifier-name', true){
+//         some: other-attributes;
+//       }
+//     }
+//   }
+@mixin if-block-has-modifier($block-name, $modifier-name, $current: false) {
+  @if $current {
+    &.#{$block-name}#{$modifier-separator}#{$modifier-name} {
+      @content;
+    }
+  } @else {
+    .#{$block-name}#{$modifier-separator}#{$modifier-name} & {
+      @content;
+    }
+  }
+}

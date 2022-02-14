@@ -1,0 +1,75 @@
+.paginator {
+  position: relative;
+  padding-left: 0;
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+
+  @include media-breakpoint-up('ipad') {
+    left: -120px;
+  }
+
+  @include media-breakpoint-up('ipad-pro') {
+    left: -200px;
+  }
+
+
+  @include element('item') {
+    list-style: none;
+    font-family: 'sspro', sans-serif;
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+
+    @include media-breakpoint-up('phone-ii') {
+      font-size: 14px;
+      height: 30px;
+    }
+
+    &.active a {
+      background-color: whitesmoke;
+      color: #222;
+
+      @include media-breakpoint-up('phone-ii') {
+        padding: 4px 13px 0 12px;
+      }
+    }
+    
+    span {
+      display: inline-flex;
+      height: 100%;
+      padding: 4px 6px 0;
+      // border-top: 1px solid yellow;
+      // border-bottom: 1px solid yellow;
+    }
+
+    @include modifier('disabled') {
+      background-color: #666;
+      color: #333;
+    }
+
+    
+  }
+
+  @include element('anchor') {
+    display: block;
+    height: 100%;
+    max-width: 31px;
+    padding: 4px 11px 0;
+    align-items: center;
+    background-color: #333;
+    text-decoration: none;
+
+    @include media-breakpoint-up('phone-ii') {
+      padding: 4px 12px 0;
+      max-width: none;
+    }
+
+    span {
+      padding: 0;
+    }
+  }
+}

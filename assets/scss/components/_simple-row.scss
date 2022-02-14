@@ -1,0 +1,28 @@
+// My simple flex row
+@mixin flex-width($col-w, $gutt-w, $total-cols: 12) {
+  $num-cols: $total-cols / $col-w;
+
+  $gutt-width: $gutt-w * ($num-cols - 1);
+  $col-width: (100 - $gutt-width) / $num-cols;
+
+  $gutter: $gutt-w;
+  $width: $col-width;
+
+  width: $width * 1%;
+  @if ($gutt-w != 0) {
+    margin-right: $gutter * 1%;
+    &:nth-child(#{$num-cols}n + #{$num-cols}) {
+      margin-right: 0;
+    }
+  }
+}
+
+.altq-row {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: $max-article-width;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}

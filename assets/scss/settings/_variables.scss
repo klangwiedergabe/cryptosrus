@@ -1,0 +1,49 @@
+///////////////////////////
+//         OURS
+///////////////////////////
+$max-portal-width: 1440px;
+$max-article-width: 680px;
+
+// BEM
+// Element separator
+$element-separator: '__' !default;
+// Modifier separator
+$modifier-separator: '--' !default;
+
+
+
+
+///////////////////////////
+//     BOOTSTRAP VARS
+///////////////////////////
+// Colors
+$primary: #ffc000;
+
+// Breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  phone: 321px,
+  phone-i: 376px,
+  phone-ii: 415px,
+  halfway: 592px,
+  ipad: 769px,
+  ipad-pro: 1024px,
+  large: 1380px,
+  x-large: 1780px
+);
+
+// Forms
+$label-margin-bottom: 4px;
+
+// FONTS
+$font-family-base: 'martel', serif;
+$font-size-base: 0.825rem;
+
+$h6-font-size: 1.22em;
+
+// Btns
+// $btn-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
+// $btn-focus-width:             $input-btn-focus-width !default;
+// $btn-focus-box-shadow:        $input-btn-focus-box-shadow !default;
+// $btn-disabled-opacity:        .65 !default;
+// $btn-active-box-shadow:       inset 0 3px 5px rgba($black, .125) !default;

@@ -1,0 +1,27 @@
+.ani-meme {
+  // border: 1px solid orange;
+  position: absolute;
+  z-index: 0;
+  top: -280px;
+  right: -229px;
+  width: 560px;
+  height: 560px;
+  animation-name: spin;
+  animation-duration: 60s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transform-origin: center;
+
+  img {
+    position: relative;
+    width: 100%;
+  }
+}
+
+@keyframes spin { 
+  from { 
+    transform: rotate(0deg); 
+  } to { 
+    transform: rotate(360deg); 
+  }
+}

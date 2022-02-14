@@ -1,0 +1,34 @@
+@mixin final-fonttier($url, $fontfam, $weights) {
+  @each $weight, $weightnumber in $weights {  
+    @font-face {
+      font-family: '#{$fontfam}';
+      font-style: normal;
+      font-weight: $weightnumber;
+      src: url('#{$url}/#{$fontfam}/#{$fontfam}-#{$weight}.eot');
+      src: url('#{$url}/#{$fontfam}/#{$fontfam}-#{$weight}.eot?#iefix') format('embedded-opentype'),
+        url('#{$url}/#{$fontfam}/#{$fontfam}-#{$weight}.woff2') format('woff2'),
+        url('#{$url}/#{$fontfam}/#{$fontfam}-#{$weight}.woff') format('woff'),
+        url('#{$url}/#{$fontfam}/#{$fontfam}-#{$weight}.ttf') format('truetype'),
+        url('#{$url}/#{$fontfam}/#{$fontfam}-#{$weight}.svg#opensans') format('svg');
+      font-display: swap;
+    }
+  }
+}
+
+// LLEGA https://www.elaltquimista.com/fonts/martel/martel-bold.eot
+
+$url-local: '/fonts';
+$url-prod: '/fonts';
+
+
+@include final-fonttier(
+  $url-prod,
+  'bemio',
+  $weights: (bold 600,)
+);
+
+@include final-fonttier(
+  $url-prod,
+  'sspro',
+  $weights: (light 300, regular 400, black 600,)
+);

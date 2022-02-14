@@ -1,0 +1,61 @@
+//===================
+// MAIN WRAPPER
+//===================
+.sato-main {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+
+  @include media-breakpoint-up('phone-ii') {
+    width: 94%;
+    padding-top: 32px;
+  }
+
+  @include media-breakpoint-up('halfway') {
+    width: 80%;
+  }
+}
+
+//===================
+// MEME LIST
+//===================
+.sato-memes {
+  background-color: transparentize(black, 0.66);
+  padding-left: 0;
+  margin: 0;
+  width: 100%;
+
+  @include media-breakpoint-up('ipad') {
+    width: 58%;
+  }
+}
+
+//===================
+// SADS
+//===================
+.sato-sad {
+  border: 1px solid #383838;
+  position: relative;
+  width: 100%;
+
+  @include media-breakpoint-up('ipad') {
+    position: fixed;
+    z-index: 1;
+    height: 82vh;
+    width: 316px;
+    right: 14px;
+  }
+
+  @include media-breakpoint-up('ipad-pro') {
+    width: 360px;
+    right: 64px;
+  }
+
+  @include media-breakpoint-up('large') {
+    width: 380px;
+    right: 188px;
+  }
+}

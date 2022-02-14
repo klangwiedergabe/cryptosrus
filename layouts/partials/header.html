@@ -1,0 +1,24 @@
+{{ $lastBuld := now.Unix }}
+{{ $cahceHashBase := (sha1 $lastBuld) }}
+{{ $site := .Site }}
+
+<nav class="sato-nav">
+  <div class="sato-nav__left">
+    <a class="sato-logo" href="{{ "" | relURL }}">
+      {{site.Title}}
+    </a>
+
+    <div class="sato-float">
+      <img src="/images/site/senorsato.jpg">
+    </div>
+  </div>
+
+  <div class="sato-nav__right">
+    {{ range site.Menus.main }}
+      <li class="nav-item">
+        <a href="{{ .URL }}">{{ .Name }}</a>
+      </li>
+    {{ end }}
+  </div>
+</nav>
+

@@ -1,0 +1,122 @@
+.altq-searchwrap {
+  position: fixed;
+  z-index: use-layer('content-3');
+  width: 100%;
+  bottom: 16px;
+  height: 40px;
+  
+  // QUERIES
+  @include media-breakpoint-up('ipad-pro') {
+    width: 190px;
+    top: 5px;
+    right: 16px;
+  }
+
+
+  // ELEMENTS
+  @include element('group') {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  @include element('search') {
+    @include color-mode(color, base, text);
+    padding: 8px 16px 8px 16px;
+    width: calc(100% - 32px);
+    font-size: 1.2em;
+    background-color: transparent;
+    font-family: 'sspro', sans-serif;
+    border: none;
+    background-image: none;
+    box-shadow: none;
+
+    &:active,
+    &:hover,
+    &:focus {
+      outline: none;
+      border: none;
+      background-image: none;
+      box-shadow: none;
+    }
+
+    @include media-breakpoint-up('ipad-pro') {
+      @include color-mode(bgprop, base, catpill);
+      border-radius: 24px;
+      // text-align: right;
+    }
+  }
+
+  @include element('clean') {
+    visibility: hidden;
+    font-family: 'sspro', sans-serif;
+    font-size: 16px;
+    width: 32px;
+    padding: 6px 16px 8px 8px;
+    position: absolute;
+    text-align: center;
+    right: 0;
+    z-index: use-layer('modal');
+    cursor: pointer;
+    opacity: 0.44;
+
+    &::after {
+      @include color-mode(bgprop, base, text-grey);
+      content: 'x';
+      color: white;
+      font-size: 11px;
+      width: 16px;
+      height: 16px;
+      border-radius: 16px;
+      padding: 1px 6px;
+    }
+  }
+
+  @include element('resultlist') {
+    position: fixed;
+    z-index: use-layer('modal');
+    bottom: 31px;
+    list-style: none;
+    padding-left: 0;
+    width: 100%;
+    height: auto;
+
+    @include media-breakpoint-up('ipad-pro') {
+      right: 16px;
+      top: 46px;
+      width: auto;
+      max-width: 280px;
+    }
+
+    &:empty {
+      height: 0;
+      display: none;
+    }
+
+    li {
+      @include color-mode(bgprop, base, nav);
+      padding: 0;
+      margin: 0;
+      border-left: 1px solid transparentize(goldenrod, 0.75);
+      border-right: 1px solid transparentize(goldenrod, 0.75);
+      border-bottom: 1px solid transparentize(goldenrod, 0.75);
+
+      &:first-child {
+        border-top: 1px solid transparentize(goldenrod, 0.75);
+      }
+    }
+
+    a {
+      background-color: transparentize(goldenrod, 0.94);
+      @include color-mode(color, base, text);
+      display: block;
+      font-family: 'sspro', sans-serif;
+      font-size: 1.125em;
+      padding: 16px 16px 12px;
+
+      &:hover {
+        @include color-mode(color, base, text);
+      }
+    }
+  }
+}
+  

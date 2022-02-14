@@ -1,0 +1,46 @@
+<li class="meme-single-list">
+  
+  <div class="meme-author-wrap">
+    <div class="meme-authpic">
+      {{ if .context.Params.picurl }}
+        <img src="/images/authors/{{ .context.Params.picurl }}">
+      {{ else }}
+        <div class="empty-auth" style="background-image: url(/images/site/anon.jpg)"></div>
+      {{ end }}
+    </div>
+
+    <div class="meme-author">
+      <p>
+        {{ if .context.Params.author }}
+          {{ .context.Params.author }}
+        {{ else }}
+          Anonymus
+        {{ end }}
+      </p>
+
+      <time class="meme-date">
+        {{ .context.Params.date.Format "2 Jan 2006" }}
+      </time>
+    </div>
+  </div>
+ 
+  <a class="meme-single__anchor" href="{{.context.RelPermalink}}">
+    {{ .context.Content }}
+    
+    {{ if .context.Params.utube }}
+      <iframe class="meme-vid" width="100%" height="380" src="https://www.youtube.com/embed/{{ .context.Params.utube}}" title="{{ .Params.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    {{ else if or (in .context.Params.memeimg "mp4") (in .context.Params.memeimg "MP4") }}
+      <video class="meme-vid" width="100%" controls autoplay muted loop>
+        <source src="/images/{{ .context.Params.memeimg }}" type="video/mp4">
+      </video>
+    {{ else }}
+      <img class="meme-img" width="100%" src="/images/{{ .context.Params.memeimg }}" alt="{{ .context.Params.title }}">
+    {{ end }}
+
+    <div class="meme-desc">
+      <p>
+        {{ .context.Title }}
+      </p>
+    </div>
+  </a>
+</li>

@@ -1,0 +1,90 @@
+//=====================
+// EMAIL SUBSCRIPTIONS
+//=====================
+.altq-subswrap {
+  display: none;
+  border: 1px solid purple;
+}
+
+.altq-logo-bnw {
+  display: flex;
+  align-items: center;
+
+  filter: grayscale(0%) opacity(73%);
+  height: 30px;
+  width: 100%;
+  margin-right: auto;
+  margin-bottom: 32px;
+
+  img {
+    max-width: 180px;
+  }
+}
+
+.altq-footer {
+  position: relative;
+  z-index: 3;
+  @include color-mode(bgprop, base, bgfoot);
+  @include color-mode(color, base, text-foot);
+  font-size: 16px;
+  font-family: 'sspro', sans-serif;
+
+  margin-top: 80px;
+  padding: 48px 40px 1px;
+  
+  @include media-breakpoint-up('ipad-pro') {
+    padding: 48px 96px 1px 24px;
+  }
+
+  @include element('wrap') {
+    display: flex;
+    align-items: flex-start;
+    flex-flow: column wrap;
+
+    @include media-breakpoint-up('halfway') {
+      flex-flow: row wrap;
+    }
+    
+    @include media-breakpoint-up('ipad') {
+      flex-flow: row nowrap;
+    }
+  }
+
+  @include element('list') {
+    padding-left: 0;
+    list-style: none;
+
+    span {
+      @include color-mode(color, base, text-foot);
+      font-family: 'martel', sans-serif;
+      font-weight: bold;
+      font-size: 1.125em;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin-bottom: 12px;
+    }
+
+    a {
+      @include color-mode(color, base, text-foot);
+      font-size: 0.925em;
+    }
+
+    @include media-breakpoint-up('halfway') {
+      width: 48%;
+    }
+
+    @include media-breakpoint-up('ipad') {
+      margin-left: 40px;
+    }
+  }
+
+  @include element('closing') {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+}

@@ -1,0 +1,24 @@
+.fouroufour {
+  padding: 56px 0 8px;
+  text-align: center;
+
+  @include element('img') {
+    max-width: 560px;
+  }
+
+  @include element('title') {
+    margin: 16px 0 8px;
+  }
+
+  @include element('desc') {
+    padding: 0 16px 0;
+
+    @include media-breakpoint-down('phone-ii') {
+      padding: 0  8px 0;
+      font-size: 1.25em;
+      br {
+        display: none;
+      }
+    }
+  }
+}

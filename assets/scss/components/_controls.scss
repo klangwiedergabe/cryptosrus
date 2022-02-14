@@ -1,0 +1,143 @@
+.altq-controls {
+  position: absolute;
+  z-index: 100;
+  width: 56px;
+  height: 84px;
+  top: 2px;
+  right: 8px;
+  
+  @include media-breakpoint-up('ipad-pro') {
+    position: fixed;
+    height: 160px;
+    top: initial;
+    right: 4px;
+    bottom: 24px;
+  }
+}
+
+// THE SWITCHERS
+.altq-style-switch {
+  display: none;
+
+  @include media-breakpoint-up('ipad-pro') {
+    // display: block;
+  }
+
+  width: 60px;
+  height: 34px;
+  transform: rotate(90deg);
+  margin-top: 32px;
+
+  input {
+    display: none;
+
+    &:checked + .altq-style-switch__slider {
+      @include color-mode(bgprop, base, nav);
+      transition: transform;
+    }
+
+    &:focus + .altq-style-switch__slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+    
+    &:checked + .altq-style-switch__slider:before {
+      transform: translateX(22px);
+      width: 17px;
+      height: 20px;
+      font-size: 28px;
+      position: relative;
+      left: 31px;
+      top: 0px;
+      content: '🗞';
+      background-color: transparent;
+    }
+  }
+
+  @include element('slider') {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include color-mode(bgprop, base, catpill);
+    transition: transform .4s;
+    border-radius: 34px;
+
+    &::before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 24px;
+      left: 9px;
+      bottom: 8px;
+      background-color: #444;
+      transition: transform .4s;
+    }
+  }
+}
+
+.altq-darkmode-switch {
+  width: 60px;
+  height: 34px;
+  transform: rotate(0deg);
+  margin-top: 11px;
+  margin-right: 10px;
+  margin-left: -8px;
+
+  @include media-breakpoint-up('ipad-pro') {
+    transform: rotate(90deg);
+    margin-left: initial;
+  }
+
+  input {
+    display: none;
+
+    &:checked + .altq-darkmode-switch__slider {
+      background-color: transparentize(white, 0.93);
+    }
+
+    &:focus + .altq-darkmode-switch__slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+    
+    &:checked + .altq-darkmode-switch__slider:before {
+      background-color: transparent;
+      transform: translateX(26px);
+      box-shadow: inset -10px -4px 0 0 use-color(primary);
+      
+      @include media-breakpoint-up('ipad-pro') {
+        box-shadow: inset -2px 12px 0 0 use-color(primary);
+      }
+    }
+  }
+
+  @include element('slider') {
+    @include color-mode(bgprop, base, catpill);
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: .4s;
+    transition: transform .4s;
+    border-radius: 34px;
+    box-shadow: 0 0 5px 0 transparentize(#000, 0.8);
+    // border-color: transparentize(black, 0.96);
+    // border-width: 2px;
+    // border-style: solid;
+
+    &::before {
+      position: absolute;
+      content: "";
+      height: 24px;
+      width: 24px;
+      left: 4px;
+      bottom: 5px;
+      background-color: use-color(primary);
+      transition: transform .4s;
+      border-radius: 50%;
+    }
+  }
+}

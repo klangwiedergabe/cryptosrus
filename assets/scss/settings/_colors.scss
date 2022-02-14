@@ -1,0 +1,92 @@
+// ## ELALT Palettes map
+$elalt-palette: (
+  darkmode: (
+    bg        : hsl(40, 71%, 92%),
+    bgread    : hsl(40, 71%, 98%),
+    nav       : hsl(40, 71%, 93%),
+    text      : hsl(113, 0%, 20%),
+    text-grey : hsl(113, 0%, 60%),
+    text-alt  : hsl(43, 100%, 46%),
+    catpill   : hsl(40, 71%, 89%),
+    bgfoot    : hsl(113, 0%, 22%),
+    text-foot : hsl(113, 0%, 73%),
+    shadow    : hsla(0, 0%, 0%, .12),
+
+    'black'    : hsl(105, 0%, 8%)
+  ),
+
+  base: (
+    bg        : hsl(113, 0%, 9%),
+    bgread    : hsl(113, 0%, 4%),
+    nav       : hsl(113, 0%, 12%),
+    text      : hsl(40, 71%, 100%),
+    text-grey : hsl(113, 0%, 42%),
+    text-alt  : hsl(43, 100%, 41%),
+    catpill   : hsl(113, 0%, 16%),
+    bgfoot    : hsl(113, 0%, 22%),
+    text-foot : hsl(113, 0%, 60%),
+    shadow    : hsla(0, 0%, 0%, .7),
+
+    'black'     : hsl(40, 71%, 99%)
+  ),
+
+  primary: (
+    light     : hsl(42, 100%, 66%),
+    base      : hsl(42, 100%, 50%),
+    dark      : hsl(42, 100%, 44%)
+  ),
+
+  event: (
+    success : hsl(152, 86%, 50%),
+    info    : hsl(198, 100%, 30%),
+    error   : hsl(1, 99%, 43%),
+    warning : hsl(1, 99%, 76%)
+  ),
+
+  // gradients: (
+  //   primary-hard: linear-gradient(-45deg, hsl(359, 83%, 53%) 0%, hsl(328, 82%, 54%) 100%),
+  //   primary-soft: linear-gradient(90deg, hsl(339, 100%, 95%) 0%, hsl(0, 0%, 100%) 100%)
+  // )
+);
+
+$portafolio-palette: (
+  'BTC': (
+    bg: #f7931a,
+    cn: 'bitcoin'
+  ),
+
+  'ETH': (
+    bg: #343535,
+    cn: 'ethereum'
+  ),
+
+  'BNB': (
+    bg: #ffb700,
+    cn: 'binance'
+  ),
+
+  'ADA': (
+    bg: #0133af,
+    cn: 'cardano'
+  ),
+
+  'DOT': ( 
+    bg: #e60b7c,
+    cn: 'polkadot'
+  ),
+
+  'XLM': (
+    bg: #000000,
+    cn: 'stellar lumens'
+  ),
+
+  'THETA': (
+    bg: #2bb8e6,
+    cn: 'theta'
+  ),
+
+  'MANA': (
+    bg: linear-gradient(-45deg, #ff4457 0%, #ffbc5b 100%),
+    cn: 'decentraland'
+  )
+);
