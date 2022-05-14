@@ -34,17 +34,19 @@
     font-weight: 600;
     letter-spacing: 0.06em;
 
-    a {
-      font-family: sans-serif;
-      color: white;
-    }
-
     li {
       margin-left: 16px;
 
       &:first-child {
         margin-left: 0;
       }
+    }
+
+    a {
+      display: block;
+      font-family: sans-serif;
+      color: white;
+      padding: 14px 12px;
     }
   }
 
